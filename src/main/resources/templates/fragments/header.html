@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+          
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Inicio Header-->
+<header th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Mi Empresa Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link active" th:href="@{/}">Panel</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/perfil}">Mi Perfil</a>
+                </li>
+                <li class="nav-item ">
+                    <a th:href="@{/registros/listar}" class="nav-link" >Registros de Accidente</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="miperfil.jsp">Usuarios</a>
+                </li>
+            </ul>
+            <div>
+            	<p th:text="${usuario}"></p>
+                <div class="text-white"><button data-toggle="modal" data-target="#salirModal" class="btn bg-transparent text-dark">Logout</button></div>
+            </div>
+        </div>
+    </nav>
+
+</header>
+<!-- Fin header-->
+<!-- Inicio Footer-->
+<div> </div>
+<!--Fin Footer-->
+
+
+
+</body>
+</html>
+
+

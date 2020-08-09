@@ -1,0 +1,23 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #003459 !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.separator-50 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.separator-60 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.separator-70 {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head::head">
+</head>
+<body>
+	<header th:insert="fragments/header::navbar"></header>
+	<div class="separator-50"></div>
+	<div class="container">
+		<div class="row mx-auto">
+			<div class="col-md-12 mx-auto">
+				<div class="card shadow">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="text-center">HISTORIAL DE ACCIDENTES</h2>
+							</div>
+						</div>
+						<div class="row">
+							<a class="btn btn-success" th:href="@{/registros/nuevo}"> <i
+								class="fa fa-plus"></i>
+							</a>
+						</div>
+					</div>
+					<div class="card-header">
+						<div class="row">
+							<table id="tableDatatable" class="table table-hover">
+								<thead>
+									<tr class="bg-primary text-light">
+										<th>#</th>
+										<th scope="col">ID DB</th>
+										<th scope="col">Nombre</th>
+										<th scope="col">Apellido</th>
+										<!-- <th scope="col">Cargo</th>
+										<th scope="col">Teléfono</th>
+										<th scope="col">Dirección</th>
+										<th scope="col">Fecha</th>
+										<th scope="col">Previsión</th> 
+										<th scope="col">Descripción</th>-->
+										<th scope="col">Tipo Accidente</th>
+
+										<th scope="col">Profesional</th>
+										<th scope="col">user sistema</th>
+										<th scope="col">Acciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="item,iterator:${key}">
+										<td th:text="${iterator.index+1}"></td>
+										<td th:text="${item.id}"></td>
+										<td th:text="${item.persona.nombre}"></td>
+										<td th:text="${item.persona.apellido}"></td>
+										<td th:text="${item.tipoAccidente.tAccidente}"></td>
+										<!-- <td th:text="${item.cargo}"></td>
+										<td th:text="${item.persona.telefono}"></td>
+										<td th:text="${item.persona.direccion}"></td>
+										<td th:text="${item.fecha}"></td>
+										<td th:text="${item.persona.sisPrevision}"></td> 
+										
+										<td th:text="${item.descripcion}"></td> -->
+										<td
+											th:text="|${item.profesional.registro} ${item.profesional.personaaa.nombre} ${item.profesional.personaaa.apellido}|"></td>
+										<td th:text="${item.user.username}"></td>
+										<td>
+											<div class="d-flex">
+											<button type="button" class="btn btn-success mr-1"
+												data-toggle="modal" data-target="#detalleModal"
+												th:attrappend="data-target=${item.id}">
+												<i class="fa fa-eye"></i>
+											</button>
+											<button type="submit" name="accion" value="Editar"
+												class="btn btn-info mr-1">
+												<i class="fa fa-pencil-alt"></i>
+											</button>
+											<button type="submit" name="accion" value="Eliminar"
+												class="btn btn-danger">
+												<i class="fa fa-trash"></i>
+											</button>
+											</div>
+											 <!-- Modal -->
+											<div class="modal fade" tabindex="-1" id="detalleModal"
+												aria-labelledby="exampleModalLabel" aria-hidden="true"
+												th:attrappend="id=${item.id}">
+												<div class="modal-dialog modal-dialog-centered modal-lg">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel">Detalles</h5>
+															<button type="button" class="close" data-dismiss="modal"
+																aria-label="Close">
+																<span aria-hidden="true">&times;</span>
+															</button>
+														</div>
+														<div class="modal-body">
+															<form>
+																<div class="row">
+																	<div class="col-12">
+																		<h3>Datos del accidentado:</h3>
+																	</div>
+																</div>
+																<div class="form-group row ">
+																	<div class="col-md-6 col-sm-12">
+																		<label for="formGroupExampleInput">Nombre de
+																			Accidentado</label> <input type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.persona.nombre}">
+																	</div>
+																	<div class="col-md-6">
+																		<label for="formGroupExampleInput">Nombre de
+																			Accidentado</label> <input type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.persona.apellido}">
+																	</div>
+																</div>
+																<div class="form-group row ">
+																	<div class="col-md-6 col-sm-12">
+																		<label for="formGroupExampleInput">Cargo</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input" th:value="${item.cargo}">
+																	</div>
+																	<div class="col-md-6">
+																		<label for="formGroupExampleInput">Dirección</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.persona.direccion}">
+																	</div>
+																</div>
+																<div class="form-group row ">
+																	<div class="col-md-6 col-sm-12">
+																		<label for="formGroupExampleInput">Teléfono</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.persona.telefono}">
+																	</div>
+																	<div class="col-md-6">
+																		<label for="formGroupExampleInput">Correo</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.persona.email}">
+																	</div>
+																</div>
+																<div class="form-group row ">
+																	<div class="col-md-6 col-sm-12">
+																		<label for="formGroupExampleInput">Previsión</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.persona.sisPrevision}">
+																	</div>
+																	<div class="col-md-6">
+																		<label for="formGroupExampleInput">Comuna</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.persona.comuna}">
+																	</div>
+																</div>
+																<div class="form-group row ">
+																	<div class="col-md-12 col-sm-12">
+																		<label for="formGroupExampleInput">Descripción</label>
+																		<textarea class="form-control" name="descripcion"
+																			id="" cols="30" rows="3"
+																			th:text="${item.descripcion}"></textarea>
+																	</div>
+																</div>
+																<hr>
+																<div class="row">
+																	<div class="col-12 d-flex justify-content-between">
+																		<h3>Profesional a cargo del caso:</h3>
+																		<p th:text="${item.profesional.registro}"
+																			class="font-weight-bold"></p>
+																	</div>
+																</div>
+																<div class="form-group row ">
+																	<div class="col-md-6 col-sm-12">
+																		<label for="formGroupExampleInput">Nombre</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.profesional.personaaa.nombre}">
+																	</div>
+																	<div class="col-md-6">
+																		<label for="formGroupExampleInput">Apellido</label> <input
+																			type="text" class="form-control"
+																			placeholder="Example input"
+																			th:value="${item.profesional.personaaa.apellido}">
+																	</div>
+																</div>
+															</form>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Cerrar</button>
+															<!-- <button type="button" class="btn btn-primary">Send message</button>  -->
+														</div>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"
+		charset="UTF-8"></script>
+	<script>
+		$(document).ready(function() {
+			$('#tableDatatable').DataTable({
+				"language": {
+		            "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+		        }
+			});
+		});
+	</script>
+</body>
+</html>
