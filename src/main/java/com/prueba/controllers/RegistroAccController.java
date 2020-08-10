@@ -1,10 +1,6 @@
 package com.prueba.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import com.prueba.entity.Persona;
 import com.prueba.entity.Profesional;
 import com.prueba.entity.RegistroAccidente;
@@ -25,7 +18,6 @@ import com.prueba.interfaceService.IPersonaService;
 import com.prueba.interfaceService.IProfesionalService;
 import com.prueba.interfaceService.IRegistroAccidenteService;
 import com.prueba.interfaceService.ITipoAccidenteService;
-import com.prueba.service.PersonaService;
 
 @Controller
 @RequestMapping("/registros")

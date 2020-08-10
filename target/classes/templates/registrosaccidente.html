@@ -22,6 +22,7 @@
 								</a>
 							</div>
 						</div>
+						<span th:text="${#authentication.getPrincipal().getiD()}"></span>
 					</div>
 					<div class="card-header">
 						<div class="row">
@@ -220,6 +221,7 @@
 																		<h3>Datos del accidentado:</h3>
 																	</div>
 																</div>
+																<input name="persona" th:value="${item.persona.id}">
 																<div class="form-group row ">
 																	<div class="col-md-6 col-sm-12">
 																		<label for="formGroupExampleInput">Nombre de
@@ -281,6 +283,14 @@
 																		<textarea class="form-control" id="" cols="30"
 																			rows="3" name="descripcion"
 																			th:text="${item.descripcion}"></textarea>
+																	</div>
+																</div>
+																<div class="form-group row ">
+																	<div class="col-md-12 col-sm-12">
+																		<label for="formGroupExampleInput">Fecha de accidente</label>
+																		<textarea class="form-control" id="" cols="30"
+																			rows="3" name="fecha"
+																			th:text="${item.fecha}"></textarea>
 																	</div>
 																</div>
 																<div class="form-group row">

@@ -35,8 +35,8 @@ INSERT INTO persona (id, apellido, comuna, direccion, email, nombre, sis_previsi
 
 
 
-INSERT INTO authority (id, authority) VALUES (1, 'USER');
-INSERT INTO authority (id, authority) VALUES (2, 'ADMIN');
+INSERT INTO authority (id, authority) VALUES (1, 'ROLE_USER');
+INSERT INTO authority (id, authority) VALUES (2, 'ROLE_ADMIN');
 
 INSERT INTO user (id, enabled, password, username, persona_id) VALUES (1, b'1', '', 'crebolledo', 32);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (2, b'1', '', 'carredondo', 31);
