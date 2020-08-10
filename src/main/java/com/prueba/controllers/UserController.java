@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.prueba.entity.Persona;
 import com.prueba.interfaceService.IPersonaService;
 import com.prueba.interfaceService.IUsuarioService;
-import com.prueba.security.Usuario;
+import com.prueba.security.User;
 import com.prueba.service.UsuarioService;
 
 @Controller
@@ -29,7 +29,7 @@ public class UserController {
 	
 	@RequestMapping("/perfil")
 	public String panel(Model model) {		
-		Usuario datosUsuario = null;
+		User datosUsuario = null;
 		Long id = (long) 1;
 		datosUsuario = iu.findOne(id);
 		System.out.println(datosUsuario);
@@ -39,7 +39,7 @@ public class UserController {
 		
 	}
 	@RequestMapping(value = "/perfil/guardar", method = RequestMethod.POST)
-	public String guardar(Usuario usuario, Model model) {
+	public String guardar(User usuario, Model model) {
 		iu.save(usuario);		
 		return panel(model);
 	}

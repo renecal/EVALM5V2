@@ -1,6 +1,7 @@
-/*package com.prueba.security;
+package com.prueba.security;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		Usuario appUser = 
+		com.prueba.security.User appUser = 
 				userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No existe el Usuario"));
 
 	  @SuppressWarnings("rawtypes")
@@ -37,4 +38,3 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	    }
 }
 
-*/

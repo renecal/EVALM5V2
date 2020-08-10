@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.prueba.security.Usuario;
+import com.prueba.security.User;
 
 @Entity
 @Table (name="Persona")
@@ -40,7 +40,7 @@ public class Persona {
 	public List<RegistroAccidente> registroAcc;
     
     @OneToMany(mappedBy = "personaa", cascade = CascadeType.ALL)
-    public List<Usuario> user;
+    public List<User> user;
     
     @OneToMany(mappedBy = "personaaa", cascade = CascadeType.ALL)
     public List<Profesional> profesional;

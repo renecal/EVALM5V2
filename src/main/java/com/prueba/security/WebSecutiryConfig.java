@@ -1,4 +1,4 @@
-/*package com.prueba.security;
+package com.prueba.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,25 +19,21 @@ public class WebSecutiryConfig extends WebSecurityConfigurerAdapter{
 
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
-	        http
-	        // define los request y asigna quienes pueden ingresar
-	            .authorizeRequests()
+	        http.authorizeRequests()
 		        .antMatchers(resources).permitAll()  
-		        //.antMatchers("/","/index").permitAll()
-		        .antMatchers("/login").permitAll()
-		        .antMatchers("/panel").permitAll()
-		       // .antMatchers("/panel*").access("hasRole('ADMIN')") // cambiar a panel
-		        .antMatchers("/registros/listar*").access("hasRole('administrador')")
-		        //.antMatchers("/registros/listar*").access("hasRole('administrador')")
-		        .antMatchers("/index*").access("hasRole('user') or hasRole('administrador')") // cambiar a panel user
-		        //index2 solo para ejemplificar
+		        .antMatchers("/","/login").permitAll()
+		        .antMatchers("/panel").access("hasRole('ADMIN') or hasRole('USER')")
+		        .antMatchers("/perfil").access("hasRole('ADMIN') or hasRole('USER')")
+		        .antMatchers("/registros/listar*").access("hasRole('ADMIN')")
+		        .antMatchers("/registros/nuevo*").access("hasRole('ADMIN')")
+		        // falta agregar las demas vistas
 	                .anyRequest().authenticated() // cualquier otra request debe estar autenticada
 	                .and()
 	            .formLogin() // verificacion del login
 	                .loginPage("/login")
 	                .permitAll()
 	                .defaultSuccessUrl("/panel")
-	                .failureUrl("/login")
+	                .failureUrl("/error")
 	                .usernameParameter("username")
 	                .passwordParameter("password")
 	                .and()
@@ -63,7 +59,7 @@ public class WebSecutiryConfig extends WebSecurityConfigurerAdapter{
 	    }
 	}
 
-*/
+
 
 
 

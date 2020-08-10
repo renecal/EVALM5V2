@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.prueba.security.Usuario;
+import com.prueba.security.User;
 
 
 @Entity
@@ -36,7 +36,7 @@ public class RegistroAccidente {
 	
 	@ManyToOne (fetch = FetchType.EAGER, optional=false)
 	@JoinColumn (name = "user_id", nullable=false)
-	private Usuario user;
+	private User user;
 	
 	@ManyToOne (fetch = FetchType.EAGER, optional=false)
 	@JoinColumn (name = "tipo_accidente_id", nullable=false)
@@ -112,11 +112,11 @@ public class RegistroAccidente {
 	}
 	
 
-	public Usuario getUser() {
+	public User getUser() {
 		return user;
 	}
 	
-	public void setUser(Usuario user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

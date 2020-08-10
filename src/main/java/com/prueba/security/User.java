@@ -19,7 +19,7 @@ import com.prueba.entity.Persona;
 import com.prueba.entity.RegistroAccidente;
 
 @Entity
-public class Usuario {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,12 +29,12 @@ public class Usuario {
 	@Column(nullable = false)
 	private String password;
 	@Column(nullable = false)
-	private boolean activo ;
+	private boolean enabled ;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name="autoridad_users",
+	@JoinTable(name="authority_user",
 	joinColumns=@JoinColumn(name="user_id", nullable = false ),
-	inverseJoinColumns=@JoinColumn(name="autoridad_id", nullable = false))
+	inverseJoinColumns=@JoinColumn(name="authority_id", nullable = false))
 	private List<Authority> authority;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional=false)
@@ -69,11 +69,11 @@ public class Usuario {
 	}
 
 	public boolean isActivo() {
-		return activo;
+		return enabled;
 	}
 
 	public void setActivo(boolean activo) {
-		this.activo = activo;
+		this.enabled = activo;
 	}
 
 	public List<Authority> getAuthority() {
@@ -111,7 +111,7 @@ public class Usuario {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		User other = (User) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -122,7 +122,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + ", activo=" + activo
+		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + ", activo=" + enabled
 				+ ", authority=" + authority + ", persona=" + personaa + ", registroAcc=" + registroAcc + "]";
 	}
 

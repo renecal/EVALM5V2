@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.prueba.security.Usuario;
+import com.prueba.security.User;
 
 
 @Controller
@@ -23,18 +23,18 @@ public class IndexController {
 		
 	}
 	
-//	@GetMapping({"/login", ""})
-//	public String login(Model model) {		
-//		model.addAttribute("titulo", "Loguearse");
-//		return "login";
-//		
-//	}
+	@GetMapping({"/login", ""})
+	public String login(Model model) {		
+		model.addAttribute("titulo", "Loguearse");
+		return "loginBase";
+		
+	}
 	
-//	@GetMapping({"/error", ""})
-//	public String error404(Model model) {		
-//		model.addAttribute("titulo", "Error");
-//		return "error";
-//		
-//	}
+	@GetMapping({"/error", ""})
+	public String error404(Model model) {		
+		model.addAttribute("titulo", "Error");
+		return "errorPage";
+		
+	}
 }
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.prueba.entity.Persona;
 import com.prueba.interfaceService.IUsuarioService;
-import com.prueba.security.Usuario;
+import com.prueba.security.User;
 import com.prueba.security.UserRepository;
 
 @Service
@@ -17,19 +17,19 @@ public class UsuarioService implements IUsuarioService{
 	@Autowired UserRepository u;
 
 	@Override
-	public List<Usuario> listarUsuario() {
-		return (List<Usuario>)u.findAll();
+	public List<User> listarUsuario() {
+		return (List<User>)u.findAll();
 	}
 
 	@Override
-	public Optional<Usuario> listarUsuarioId(Long id) {
+	public Optional<User> listarUsuarioId(Long id) {
 		return u.findById(id);
 	}
 
 	@Override
-	public int save(Usuario p) {
+	public int save(User p) {
 		int res = 0;
-		Usuario usuario = u.save(p);
+		User usuario = u.save(p);
 		if(!usuario.equals(null)) {
 			res=1;
 		}
@@ -43,7 +43,7 @@ public class UsuarioService implements IUsuarioService{
 	}
 
 	@Override
-	public Usuario findOne(Long id) {
+	public User findOne(Long id) {
 
 		// TODO Auto-generated method stub
 		return u.findById(id).orElse(null);
