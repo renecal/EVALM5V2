@@ -71,6 +71,7 @@ public class RegistroAccController {
 	
 	@RequestMapping(value = "/editar/{id}")
 	public String editar(RegistroAccidente registro, @PathVariable(value = "id") Long id, Model model) {
+		
 		rAccService.save(registro);
 		model.addAttribute("editado", "ok editado");
 		return "registrosaccidente";

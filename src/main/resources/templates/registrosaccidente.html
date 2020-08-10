@@ -22,7 +22,9 @@
 								</a>
 							</div>
 						</div>
-						<span th:text="${#authentication.getPrincipal().getiD()}"></span>
+						
+						
+						<span th:text="${#authentication.getPrincipal()}"></span>
 					</div>
 					<div class="card-header">
 						<div class="row">
@@ -222,6 +224,7 @@
 																	</div>
 																</div>
 																<input name="persona" th:value="${item.persona.id}">
+																<input name="user" th:value="${item.user.id}">
 																<div class="form-group row ">
 																	<div class="col-md-6 col-sm-12">
 																		<label for="formGroupExampleInput">Nombre de
