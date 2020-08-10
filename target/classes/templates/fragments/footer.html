@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div th:fragment="footer">
+		<footer>
+
+			<!-- Modal -->
+			<div class="modal fade" id="logOutModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Cancelar</button>
+
+							<form th:action="@{/logout}" method="POST">
+								<input class="btn btn-danger" type="submit" value="Cerrar Sesión" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p>Eval M5.</p>
+		</footer>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<script
+			src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+		<script
+			src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"
+			charset="UTF-8"></script>
+
+		<script>
+			$(document)
+					.ready(
+							function() {
+								$('#tableDatatable')
+										.DataTable(
+												{
+													"language" : {
+														"url" : "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+													}
+												});
+							});
+		</script>
+		<script th:inline="javascript">
+			$(document).ready(
+					function() {
+						/*<![CDATA[*/
+
+						/*[# th:each="persona : ${personas}"]*/
+
+						var personaRut = /*[[${persona.rut}]]*/'noValue';
+						if (personaRut) {
+
+						} else {
+							console.log(personaRut)
+						}
+
+						$("#rutInput").autocomplete(
+								{
+
+									minLength : 1,
+									source : personaRut,
+									select : function(e, ui) {
+										$("#rutOutput").text(
+												'You have selected : '
+														+ ui.item.value);
+										return ui.item.value;
+									}
+								})
+
+						console.log(personaRut)
+
+						/*[/]*/
+
+						/*]]>*/
+
+					});
+		</script>
+	</div>
+</body>
+</html>
