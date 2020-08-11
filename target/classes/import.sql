@@ -38,7 +38,7 @@ INSERT INTO persona (id, apellido, comuna, direccion, email, nombre, sis_previsi
 INSERT INTO authority (id, authority) VALUES (1, 'ROLE_USER');
 INSERT INTO authority (id, authority) VALUES (2, 'ROLE_ADMIN');
 
-INSERT INTO user (id, enabled, password, username, persona_id) VALUES (1, b'1', '', 'crebolledo', 32);
+INSERT INTO user (id, enabled, password, username, persona_id) VALUES (1, b'1', '$2a$04$kcGEFDP8Uwo1KOc68nThB.fkFqMdtfOesTbOH/oeN.4as9d1P/RkK', 'crebolledo', 32);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (2, b'1', '', 'carredondo', 31);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (3, b'1', '', 'ubarrales', 5);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (4, b'1', '', 'ucabrales', 7);
@@ -51,7 +51,7 @@ INSERT INTO user(id, enabled, password, username, persona_id) VALUES (10, b'1', 
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (11, b'1', '', 'ureschke', 24);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (12, b'1', '', 'uchacon', 11);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (13, b'1', '', 'uremolino', 25);
-INSERT INTO user(id, enabled, password, username, persona_id) VALUES (14, b'1', '', 'ulara', 19);
+INSERT INTO user(id, enabled, password, username, persona_id) VALUES (14, b'1', '$2a$04$kcGEFDP8Uwo1KOc68nThB.fkFqMdtfOesTbOH/oeN.4as9d1P/RkK', 'ulara', 19);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (15, b'1', '', 'uluengo', 21);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (16, b'1', '', 'uguzman', 14);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (17, b'1', '', 'ucid01', 10);
