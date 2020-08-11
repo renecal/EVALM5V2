@@ -3,61 +3,34 @@
 <head th:insert="fragments/head::head">
 </head>
 <body>
-<header th:insert="fragments/header::navbar" ></header>
-		<div class="separator-50"></div>
-		<div class="container">
+	<header th:insert="fragments/header::navbar"></header>
+	<div class="separator-50"></div>
+	<div class="container" style="min-height: 600px;">
 		<div class="row">
-            <div class="col-md-3 mb-3">
-                <div class="card shadow bg-warning">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">Mi Perfil de </h5>
-                      <a  th:href="@{/perfil}" class="btn btn-primary">Ver Perfil</a>
-                      
-                    </div>
-                  </div>
-            </div>
-            
-            <div class="col-md-3 mb-3">
-                <div class="card shadow bg-warning">
-                    <div class="card-body text-center">
-                    
-                      <h5 class="card-title">Ver Accidentes</h5>
-                      <a  th:href="@{/registros/listar}" href="" class="btn btn-primary">Ver Accidentes</a>
-                      
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="card shadow bg-warning">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">Ver Usuarios</h5>
-                      <a href="${pageContext.request.contextPath}/usuarios" class="btn btn-primary">Ver Usuarios</a>
-                      
-                    </div>
-                  </div>
-            </div>
-              <div class="col-md-3 mb-3">
-                <div class="card shadow bg-warning">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">Ver Personas</h5>
-                      <a href="${pageContext.request.contextPath}/personas" class="btn btn-primary">Ver Personas</a>
-                      
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="card shadow bg-warning">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">Roles</h5>
-                      <a href="${pageContext.request.contextPath}/roles" class="btn btn-primary">Ver Roles</a>
-                      
-                    </div>
-                  </div>
-            </div>
-        </div>
+			<div class="col-md-3 mb-3">
+				<div class="card shadow bg-warning">
+					<div class="card-body text-center">
+						<h5 class="card-title">Mi Perfil de</h5>
+						<a th:href="@{/perfil}" class="btn btn-primary">Ver Perfil</a>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 mb-3">
+				<div class="card shadow bg-warning">
+					<div class="card-body text-center">
+
+						<h5 class="card-title">Ver Accidentes</h5>
+						<a th:href="@{/registros/listar}" href="" class="btn btn-primary">Ver
+							Accidentes</a>
+
+					</div>
+				</div>
+			</div>
 		</div>
-		<div th:insert="fragments/footer::footer">
-		</div>
+	</div>
+	<div th:insert="fragments/footer::footer"></div>
 
 </body>
 </html>

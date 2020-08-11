@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.prueba.entity.Persona;
 import com.prueba.entity.Profesional;
 import com.prueba.entity.RegistroAccidente;
@@ -58,6 +60,13 @@ public class RegistroAccController {
 		return "nuevoregistro";
 	}
 	
+	@RequestMapping(value="/add", method = RequestMethod.POST )
+	public String procesarRegistroAccidente(@ModelAttribute("registroModelo") RegistroAccidente regAccidente, Model model) {
+		regAccidente = rAccService.save(regAccidente);
+		//return agregarRegistroAccidente(model);
+		return ("redirect:listar");
+	}
+	
 //	@RequestMapping(value="/personasjson")
 //	@ResponseBody
 //	public List<String> personasJsonAutocomplete(){
@@ -69,7 +78,7 @@ public class RegistroAccController {
 //		return personas;
 //	}
 	
-	@RequestMapping(value = "/editar/{id}/{persona_id}")
+	@RequestMapping(value = "/registros/editar/{id}/{persona_id}")
 	public String editar( @PathVariable(value = "id") Long id, @PathVariable(value = "persona_id") Long persona_id, RegistroAccidente registro, Persona persona,  Model model) {
 		
 		
@@ -82,11 +91,14 @@ public class RegistroAccController {
 		
 	}
 	
-	@RequestMapping(value="/add", method = RequestMethod.POST )
-	public String procesarRegistroAccidente(@ModelAttribute("registroModelo") RegistroAccidente regAccidente, Model model) {
-		regAccidente = rAccService.save(regAccidente);
-		//return agregarRegistroAccidente(model);
-		return ("redirect:listar");
+	@RequestMapping(value = "/eliminar/{id}")
+	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
+
+		if (id > 0) {
+			rAccService.delete(id);
+			flash.addFlashAttribute("success", "Cliente eliminado con éxito!");
+		}
+		return "redirect:/registros/listar";
 	}
 	
 }

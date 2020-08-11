@@ -14,6 +14,7 @@
 							<div class="col-md-12">
 								<h2 class="text-center">HISTORIAL DE ACCIDENTES</h2>
 							</div>
+						<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
 						</div>
 						<div sec:authorize="hasRole('ADMIN')" th:remove="tag">
 							<div class="row">
@@ -79,10 +80,9 @@
 														<i class="fa fa-pencil-alt"></i>
 													</button>
 
-													<button type="submit" name="accion" value="Eliminar"
-														class="btn btn-danger">
+													<a th:href="@{/registros/eliminar}+'/'+${item.id}" class="btn btn-danger" onclick="return confirm('Est&aacute;s seguro que quieres eliminar?');">
 														<i class="fa fa-trash"></i>
-													</button>
+													</a>
 												</div>
 											</div> <!-- Modal ver -->
 											<div class="modal fade" tabindex="-1" id="detalleModal"
