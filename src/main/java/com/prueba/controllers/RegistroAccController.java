@@ -28,15 +28,15 @@ public class RegistroAccController {
 	@Autowired
 	private ITipoAccidenteService tipoAccidenteService;
 	@Autowired
-	private IPersonaService personas;
+	private IPersonaService personaService;
 	@Autowired
-	private IProfesionalService profesionales;
+	private IProfesionalService profesionalService;
 
 	
 	@GetMapping("/listar")
 	public String listarRegistroAccidente(Model model) {
 	    List<RegistroAccidente> regAccidente = rAccService.listarAccidente();
-	    List<Profesional> listaprofesionales = profesionales.listarProfesional();
+	    List<Profesional> listaprofesionales = profesionalService.listarProfesional();
 	    List<TipoAccidente> tiposAccidentes = tipoAccidenteService.listarTipoAccidente();
 	    model.addAttribute("key", regAccidente);
 	    model.addAttribute("profesionales", listaprofesionales);
@@ -48,8 +48,8 @@ public class RegistroAccController {
 	@GetMapping("/nuevo")
 	public String agregarRegistroAccidente(Model model) {
 		List<TipoAccidente> tiposAccidentes = tipoAccidenteService.listarTipoAccidente();
-		List<Persona> listapersonas = personas.listarPersona();
-		List<Profesional> listaprofesionales = profesionales.listarProfesional();
+		List<Persona> listapersonas = personaService.listarPersona();
+		List<Profesional> listaprofesionales = profesionalService.listarProfesional();
 		model.addAttribute("title", "Nuevo Registro de Accidente");
 		model.addAttribute("tiposAccidentes", tiposAccidentes);
 		model.addAttribute("personas", listapersonas);
@@ -69,10 +69,14 @@ public class RegistroAccController {
 //		return personas;
 //	}
 	
-	@RequestMapping(value = "/editar/{id}")
-	public String editar(RegistroAccidente registro, @PathVariable(value = "id") Long id, Model model) {
+	@RequestMapping(value = "/editar/{id}/{persona_id}")
+	public String editar( @PathVariable(value = "id") Long id, @PathVariable(value = "persona_id") Long persona_id, RegistroAccidente registro, Persona persona,  Model model) {
 		
-		rAccService.save(registro);
+		
+		if(personaService.save(persona) >= 1) {
+			rAccService.save(registro);
+		}
+		
 		model.addAttribute("editado", "ok editado");
 		return "registrosaccidente";
 		

@@ -35,8 +35,10 @@
                 </li>
             </ul>
             <div>
-                    <div sec:authorize="hasRole('USER')" th:remove="tag">PRIVILEGIOS DE: USER</div>
-                    <div sec:authorize="hasRole('ADMIN')" th:remove="tag">PRIVILEGIOS DE: ADMIN</div>
+            
+                   <i class="fa fa-user mr-2"></i><span th:text="${#authentication.getPrincipal().getUsername()}"></span> /
+                    <div sec:authorize="hasRole('USER')" th:remove="tag">USER</div>
+                    <div sec:authorize="hasRole('ADMIN')" th:remove="tag">ADMIN</div>
                 <div class="text-white"><button data-toggle="modal" data-target="#logOutModal" class="btn bg-transparent text-dark">Cerrar Sesión</button></div>
             </div>
         </div>

@@ -24,7 +24,7 @@
 						</div>
 						
 						
-						<span th:text="${#authentication.getPrincipal()}"></span>
+				
 					</div>
 					<div class="card-header">
 						<div class="row">
@@ -216,8 +216,8 @@
 															</button>
 														</div>
 														<div class="modal-body">
-															<form th:action="@{/registros/editar/}+${item.id}"
-																th:method="POST" th:object="${key}">
+															<form th:action="@{/registros/editar/}+${item.id}+'/'+${item.persona.id}"
+																th:method="POST">
 																<div class="row">
 																	<div class="col-12">
 																		<h3>Datos del accidentado:</h3>
@@ -278,6 +278,11 @@
 																			type="text" class="form-control"
 																			placeholder="Example input" name="comuna}"
 																			th:value="${item.persona.comuna}">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-12">
+																		<h3>Accidente:</h3>
 																	</div>
 																</div>
 																<div class="form-group row ">
