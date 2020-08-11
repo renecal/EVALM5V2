@@ -15,7 +15,7 @@
                     <!--  <div th:text="${query}"></div> -->
                     <div class="card-body">
                     <div th:each="item : ${query}">
-                        <form action="" id="miPerfil"  th:action="@{/perfil/guardar}"
+                        <form action="" id="miPerfil"  th:action="@{/editarPerfil}"
 											th:method="post" th:object="${query}">
                             <div class="form-group row">
                             	
@@ -62,20 +62,25 @@
                                 <div class="col-md-6">
                                     <label for="nombre_rol">Rol</label>
                                     <div th:each="autoridad:${item.authority}">
-                                    	<input id="nombre_rol" class="form-control" type="text" name="nombre_rol" th:value="${autoridad.authority}" >
+                                    	<input id="nombre_rol" class="form-control" type="text" name="nombre_rol" th:value="${autoridad.authority}" disabled>
                                 	</div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="nombre_usuario">Username</label>
-                                    <input id="nombre_usuario" class="form-control" type="text" name="nombre_usuario"  th:value="${item.username}"  >
+                                    <input id="nombre_usuario" class="form-control" type="text" name="nombre_usuario"  th:value="${item.username}"  disabled>
                                 </div>
-                                
+                           
                             </div> 
+                            
+                            <div sec:authorize="hasRole('ADMIN')" th:remove="tag">
                            <button type="submit" id="solicitarModificacion" class="btn btn-success my-3 float-right">Editar</button>                   
                            <!-- <button type="button" id="solicitarModificacion" class="btn btn-success my-3 float-right" data-toggle="modal" data-target="#solicitarModificacionModal">Solicitar Modificaci&oacute;n</button>  -->                    
+                           </div>
+                           
                         </form>
                         </div>
                     </div>
+                 
                 </div>
             </div>
         </div>

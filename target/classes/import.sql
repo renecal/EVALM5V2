@@ -35,8 +35,8 @@ INSERT INTO persona (id, apellido, comuna, direccion, email, nombre, sis_previsi
 
 
 
-INSERT INTO authority (id, authority) VALUES (1, 'USER');
-INSERT INTO authority (id, authority) VALUES (2, 'ADMIN');
+INSERT INTO authority (id, authority) VALUES (1, 'ROLE_USER');
+INSERT INTO authority (id, authority) VALUES (2, 'ROLE_ADMIN');
 
 INSERT INTO user (id, enabled, password, username, persona_id) VALUES (1, b'1', '', 'crebolledo', 32);
 INSERT INTO user(id, enabled, password, username, persona_id) VALUES (2, b'1', '', 'carredondo', 31);
@@ -106,12 +106,12 @@ INSERT INTO profesional (id, registro, persona_id) VALUES (31, '#0031', 31);
 INSERT INTO profesional (id, registro, persona_id) VALUES (32, '#0032', 32);
 
 
-INSERT INTO tipo_accidente (id, t_accidente) VALUES (1, 'CaÃ­das');
+INSERT INTO tipo_accidente (id, t_accidente) VALUES (1, 'Caídas');
 INSERT INTO tipo_accidente (id, t_accidente) VALUES (2, 'Quemaduras');
 INSERT INTO tipo_accidente (id, t_accidente) VALUES (3, 'Envenenamiento con gas');
 INSERT INTO tipo_accidente (id, t_accidente) VALUES (4, 'Envenenamiento');
 INSERT INTO tipo_accidente (id, t_accidente) VALUES (5, 'Cortaduras');
-INSERT INTO tipo_accidente (id, t_accidente) VALUES (6, 'Accidentes automovilÃ­stico ');
+INSERT INTO tipo_accidente (id, t_accidente) VALUES (6, 'Accidentes automovilístico ');
 INSERT INTO tipo_accidente (id, t_accidente) VALUES (7, 'Accidente Laboral ');
 INSERT INTO tipo_accidente (id, t_accidente) VALUES (8, 'Accidente en Trayecto');
 
