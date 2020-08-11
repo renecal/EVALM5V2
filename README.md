@@ -18,7 +18,7 @@ O cambiar la opcion de spring.jpa.hibernate.ddl-auto  a create-drop dentro del a
 
 
 ```bash
-pip install foobar
+spring.jpa.hibernate.ddl-auto=create-drop
 ```
 
 ## Archivo aplication.properties
